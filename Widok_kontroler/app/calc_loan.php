@@ -56,3 +56,4 @@ if (empty ( $messages_loan )) {
 	
 }
 include 'calc_view.php';
+include 'calc_loan_view.php';

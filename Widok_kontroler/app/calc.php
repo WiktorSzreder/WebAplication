@@ -71,3 +71,4 @@ if (empty ( $messages )) { // gdy brak błędów
 // - zainicjowane zmienne ($messages,$x,$y,$operation,$result)
 //   będą dostępne w dołączonym skrypcie
 include 'calc_view.php';
+include 'calc_loan_view.php';
