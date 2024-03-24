@@ -1,0 +1,65 @@
+{extends file="../templates/main.html"}
+
+{block name=content}
+
+<h2>Prosty kalkulator kredytowy</h2>
+
+<form action="{$app_url}/app/calc.php" method="post">
+	<fieldset>
+
+
+		<label for="kwota">Kwota: </label>
+		<input id="kwota" type="text" name="kwota" placeholder="kwota" value="{$form['kwota']}">
+
+
+		<label for="lata">Ilość lat: </label>
+		<input id="lata" type="text" name="lata" placeholder="lata" value="{$form['lata']}">
+
+		<label for="oprocentowanie">Oprocentowanie: </label>
+		<input id="oprocentowanie" type="text" name="oprocentowanie" placeholder="oprocentowanie" value="{$form['oprocentowanie']}">
+
+				
+
+
+		<button type="submit">Oblicz</button>
+	</fieldset>
+</form>
+
+
+{* wyświeltenie listy błędów, jeśli istnieją *}
+{if isset($messages)}
+	{if count($messages) > 0} 
+		<h4>Wystąpiły błędy: </h4>
+		<ol class="err">
+		{foreach  $messages as $msg}
+		{strip}
+			<li>{$msg}</li>
+		{/strip}
+		{/foreach}
+		</ol>
+	{/if}
+{/if}
+
+{* wyświeltenie listy informacji, jeśli istnieją *}
+{if isset($infos)}
+	{if count($infos) > 0} 
+		<h4>Informacje: </h4>
+		<ol class="inf">
+		{foreach  $infos as $msg}
+		{strip}
+			<li>{$msg}</li>
+		{/strip}
+		{/foreach}
+		</ol>
+	{/if}
+{/if}
+
+{if isset($result)}
+	<h4>Wynik</h4>
+	<p class="res">
+	{$result}
+	</p>
+{/if}
+
+
+{/block}
